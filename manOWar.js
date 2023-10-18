@@ -3,7 +3,7 @@ function manOWar(arr) {
   let warship = arr.shift().split(`>`).map(Number);
   let maxHp = Number(arr.shift());
 
-  let critical = maxHp * 0.20;
+  let critical = maxHp * 0.2;
 
   for (let els of arr) {
     let commands = els.split(` `);
@@ -21,7 +21,7 @@ function manOWar(arr) {
       
       warship[index] -= damage;
       
-      if (warship[index] <= 0) {
+      if (warship[index] < 0) {
         console.log(`"You won! The enemy ship has sunken.`);
         return;
     }
@@ -37,7 +37,7 @@ function manOWar(arr) {
         for (let i = start; i <= end; i++) {
           pirate[i] -= damage;
 
-          if (pirate[i] <= 0) {
+          if (pirate[i] < 0) {
             console.log(`You lost! The pirate ship has sunken.`);
             return;
           }
